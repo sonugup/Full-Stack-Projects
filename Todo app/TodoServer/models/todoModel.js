@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const todoSchema = mongoose.Schema({
     text: String,
     status: {
-        type:Boolean,
-        default:false
+        type: Boolean,
+        default: false
     }
 })
 

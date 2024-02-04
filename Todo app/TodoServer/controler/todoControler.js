@@ -1,24 +1,15 @@
 const { TodoModel } = require("../models/todoModel");
 
 const getTodos = async (req, res) => {
-    const todos= await TodoModel.find()
+    const todos = await TodoModel.find()
     console.log(todos)
-    res.json({msg:todos})
-
-    // TodoModel.find()
-    // .then(result => res.json(result))
-    // .catch(err => console.log(err))
+    res.json({ msg: todos })
 }
 
 const getidTodos = async (req, res) => {
-    const todos= await TodoModel.findById()
+    const todos = await TodoModel.findById()
     console.log(todos)
-    // todos.save()
-    res.json({msg:todos})
-
-    // TodoModel.find()
-    // .then(result => res.json(result))
-    // .catch(err => console.log(err))
+    res.json({ msg: todos })
 }
 
 const postTodos = async (req, res) => {
@@ -36,12 +27,11 @@ const postTodos = async (req, res) => {
 
 const updateTodos = async (req, res) => {
     const id = req.params.id;
-    const todo=req.body
+    const todo = req.body
     try {
-        const todos=await TodoModel.findByIdAndUpdate({ _id: id }, todo,{
-            returnDocument:"after"
+        const todos = await TodoModel.findByIdAndUpdate({ _id: id }, todo, {
+            returnDocument: "after"
         });
-        // todos.save();
         res.send(todos)
     } catch (err) {
         console.log(err)
@@ -51,7 +41,7 @@ const updateTodos = async (req, res) => {
 
 const deleteTodos = async (req, res) => {
     const id = req.params.id;
-    
+
     try {
         await TodoModel.findByIdAndDelete({ _id: id });
         res.send("delete")
