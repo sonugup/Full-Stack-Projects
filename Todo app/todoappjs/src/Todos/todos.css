@@ -1,0 +1,46 @@
+
+
+.container{
+    /* border: 1px solid; */
+    width: 100%;
+    margin: auto;
+    background-color: aliceblue;
+}
+
+
+.todo{
+    width: 360px;
+    margin:1% auto;
+    padding: 0 0 0 10px ;
+    display: flex;
+    border: 1px solid;
+    justify-content: space-between;
+    background-color: teal;
+    color: white;
+}
+
+button{
+    padding:16px 16px;
+    font-size: 19px;
+    border: none;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    /* margin:0 2px; */
+}
+
+.inpbox{
+    border: 2px solid;
+    width: 360px;
+    margin: auto;
+    align-items: center;
+    display: flex;
+}
+input{
+    padding:18px 6px;
+    /* border: none; */
+    width: 280px;
+}
+h1{
+    color: teal;
+}
