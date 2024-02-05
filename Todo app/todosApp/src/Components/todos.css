@@ -1,0 +1,51 @@
+
+
+.main{
+    box-sizing: border-box;
+    width: 100%;
+    margin: -2%;
+    background-color: aliceblue;
+    padding: 2rem;
+}
+
+
+.todo{
+    width: 360px;
+    margin:1% auto;
+    padding: 0 0 0 10px ;
+    display: flex;
+    border: 1px solid;
+    justify-content: space-between;
+    background-color: rgb(180, 4, 142);
+    color: rgb(255, 255, 255);
+}
+
+button{
+    padding: 19px;
+    font-size: 20px;
+    border: none;
+    background-color: rgb(180, 4, 142);
+    color: white;
+    cursor: pointer;
+    /* margin:0 2px; */
+}
+.btn{
+    display: flex;
+    /* padding: 10px; */
+}
+.inpbox{
+    border: 2px solid rgb(180, 4, 142);
+    width: 360px;
+    margin: auto;
+    align-items: center;
+    display: flex;
+}
+input{
+    padding:21px 16px;
+    width: 280px;
+    font-size: 15px;
+}
+h1{
+    color: rgb(180, 4, 142);
+    margin: 5%;
+}
