@@ -13,7 +13,7 @@ const Todo = () => {
   const [text, setText] = useState('')
   const [edit, setEdit] = useState(null)
   useEffect(() => {
-    axios.get(`http://localhost:3458/todos`)
+    axios.get(`https://motionless-toad-stockings.cyclic.app/todos`)
       .then(res => setTodos(res.data.msg))
       .catch(err => console.log(err))
   }, [update])
@@ -21,7 +21,7 @@ const Todo = () => {
 
 
   const editeTodos = (id: any) => {
-    axios.put(`http://localhost:3458/todos/update/${id}`)
+    axios.put(`https://motionless-toad-stockings.cyclic.app/todos/update/${id}`)
       .then(result => {
         console.log(result.data._id)
         if (result.data._id == id) {
@@ -36,7 +36,7 @@ const Todo = () => {
   }
 
   const deleteTodos = (id: string) => {
-    axios.delete(`http://localhost:3458/todos/delete/${id}`)
+    axios.delete(`https://motionless-toad-stockings.cyclic.app/todos/delete/${id}`)
       .then(result => {
         console.log(result)
         setUpdate((prev) => !prev)

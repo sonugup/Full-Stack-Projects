@@ -9,7 +9,7 @@ const TodoInput = ({ setUpdate, toggle, setToggle, text, setText, todos, setTodo
       alert("plz add todos")
     }
     else if (text && !toggle) {
-      axios.put(`http://localhost:3458/todos/update/${edit} `, { text: text })
+      axios.put(`https://motionless-toad-stockings.cyclic.app/todos/update/${edit} `, { text: text })
         .then(res => {
           setTodos(
             res.map((ele) => {
@@ -30,7 +30,7 @@ const TodoInput = ({ setUpdate, toggle, setToggle, text, setText, todos, setTodo
       setEdit(null)
       setUpdate((prev) => !prev)
     } else {
-      axios.post("http://localhost:3458/todos/create", { text: text })
+      axios.post("https://motionless-toad-stockings.cyclic.app/todos/create", { text: text })
         .then(result => {
           setUpdate((prev) => !prev)
         })

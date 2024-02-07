@@ -1,7 +1,6 @@
 
 
 .container{
-    /* border: 1px solid; */
     width: 100%;
     margin: auto;
     background-color: aliceblue;
@@ -20,17 +19,16 @@
 }
 
 button{
-    padding:16px 16px;
+    padding:17px;
     font-size: 19px;
     border: none;
     background-color: teal;
     color: white;
     cursor: pointer;
-    /* margin:0 2px; */
 }
 
 .inpbox{
-    border: 2px solid;
+    border: 3px solid teal;
     width: 360px;
     margin: auto;
     align-items: center;
@@ -40,6 +38,9 @@ input{
     padding:18px 6px;
     /* border: none; */
     width: 280px;
+    color: teal;
+    font-size: 15px;
+    font-weight: 600;
 }
 h1{
     color: teal;

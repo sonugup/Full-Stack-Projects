@@ -28,7 +28,7 @@ const TodoInput = (props: textType) => {
       alert("plz add todos")
     }
     else if (text && !toggle) {
-      axios.put(`http://localhost:3458/todos/update/${edit} `, { text: text })
+      axios.put(`https://motionless-toad-stockings.cyclic.app/todos/update/${edit} `, { text: text })
         .then(result => {
           setTodos(
             result.map((ele:any) => {
@@ -49,7 +49,7 @@ const TodoInput = (props: textType) => {
       setEdit(null)
       setUpdate((prev:any) => !prev)
     } else {
-      axios.post("http://localhost:3458/todos/create", { text: text })
+      axios.post("https://motionless-toad-stockings.cyclic.app/todos/create", { text: text })
         .then(result => {
           console.log(result)
           setUpdate((prev:any) => !prev)
