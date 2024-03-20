@@ -1,23 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import {gql, useQuery} from "@apollo/client"
+
+// GetTodosWithUser
+const query= gql`
+query GetTodos {
+  getTodos {
+    id
+    title
+    completed
+    user {
+      id
+      name
+      email
+      phone
+    }
+  }
+  
+}
+`
 
 function App() {
+  const {data, loading}=useQuery(query)
+console.log(data)
+  if(loading) <h1>Loading...</h1>
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <table>
+    <tbody>
+      {
+        data.getTodos.map((todo )=>(<tr key={todo.id}>
+          
+          <td>{todo.title}</td>
+          <td> {todo?.users?.name} </td>
+        </tr>))
+      }
+    </tbody>
+   </table>
     </div>
   );
 }

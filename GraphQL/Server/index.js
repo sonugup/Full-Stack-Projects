@@ -1,11 +1,12 @@
 const express = require("express");
 
 const { ApolloServer } = require("@apollo/server")
-
-const { exprssMiddleware } = require("@apollo/server/errors");
+const {expressMiddleware}=require("@apollo/server/express4")
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { default: axios } = require("axios");
+const {USERS} =require("./data/users")
+const {TODOS} =require("./data/todos")
 
 async function startServer() {
     const app = express();
@@ -21,7 +22,7 @@ async function startServer() {
         type Todo {
             id:ID!
             title:String!
-            completed:boolean
+            completed:Boolean
             user:User
         }
 
@@ -33,28 +34,31 @@ async function startServer() {
         `,
         resolvers: {
             Todo :{
-                    User: async (todo) => 
-                    (await axios.get(`https://jsonplaceholder.typicode.com/users/${todo.id}`)).data
+                    user:  (todo) =>  USERS.find((e) => e.id === todo.id),
+                    // (await axios.get(`https://jsonplaceholder.typicode.com/users/${todo.id}`)).data
             },
             Query: {
-                getTodos: async () => (
-                    await axios.get(`https://jsonplaceholder.typicode.com/todos`)
-                ).data,
-                getAllUser: async () => (await axios.get(`https://jsonplaceholder.typicode.com/users`)).data,
-                getUser: async (parent, {id}) => (
-                    (await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)).data
-                )
+                getTodos:  () => TODOS,
+                // (
+                    // await axios.get(`https://jsonplaceholder.typicode.com/todos`)
+                // ).data,
+                getAllUsers:  () => USERS,
+                // (await axios.get(`https://jsonplaceholder.typicode.com/users`)).data,
+                getUser: async (parent, {id}) => USERS.find((e) => e.id === id),
+                // (
+                    // (await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)).data
+                // )
             }
         }
     });
 
     app.use(bodyParser.json());
-    app.use(cors);
+    app.use(cors());
 
     await server.start()
-    app.use("graphql", exprssMiddleware(server))
+    app.use("/graphql", expressMiddleware(server))
 
-    app.listen(8000, () => console.log("server started"))
+    app.listen(8080, () => console.log("server started"))
 }
 
 startServer();
