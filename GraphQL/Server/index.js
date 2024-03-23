@@ -34,17 +34,17 @@ async function startServer() {
         `,
         resolvers: {
             Todo :{
-                    user:  (todo) =>  USERS.find((e) => e.id === todo.id),
+                    user: async (todo) =>   USERS.find((e) => e.id === todo.id),
                     // (await axios.get(`https://jsonplaceholder.typicode.com/users/${todo.id}`)).data
             },
             Query: {
-                getTodos:  () => TODOS,
+                getTodos:  async () =>  TODOS,
                 // (
                     // await axios.get(`https://jsonplaceholder.typicode.com/todos`)
                 // ).data,
-                getAllUsers:  () => USERS,
+                getAllUsers: async () =>  USERS,
                 // (await axios.get(`https://jsonplaceholder.typicode.com/users`)).data,
-                getUser: async (parent, {id}) => USERS.find((e) => e.id === id),
+                getUser: async (parent, {id}) =>  USERS.find((e) => e.id === id),
                 // (
                     // (await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)).data
                 // )

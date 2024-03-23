@@ -4,7 +4,7 @@ import {gql, useQuery} from "@apollo/client"
 
 // GetTodosWithUser
 const query= gql`
-query GetTodos {
+query GetTodosWithUser {
   getTodos {
     id
     title
@@ -26,15 +26,16 @@ console.log(data)
   if(loading) <h1>Loading...</h1>
   return (
     <div className="App">
+      {JSON.stringify(data)}
    <table>
     <tbody>
-      {
+      {/* {
         data.getTodos.map((todo )=>(<tr key={todo.id}>
           
           <td>{todo.title}</td>
           <td> {todo?.users?.name} </td>
         </tr>))
-      }
+      } */}
     </tbody>
    </table>
     </div>
