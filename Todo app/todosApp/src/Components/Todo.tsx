@@ -6,7 +6,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import "./todos.css"
 import Button from './Button';
-const Todo = () => {
+const Todo: React.FC= () => {
   const [todos, setTodos] = useState([])
   const [update, setUpdate] = useState(false)
   const [toggle, setToggle] = useState(true)

@@ -3,7 +3,7 @@ interface buttonType{
     text:any,
     handleButton:() => void
 }
-const Button = (props:buttonType) => {
+const Button: React.FC = (props) => {
     const {handleButton, text}=props
   return (
     <div>
@@ -12,4 +12,4 @@ const Button = (props:buttonType) => {
   )
 }
 
-export default Button
+export default Button;
