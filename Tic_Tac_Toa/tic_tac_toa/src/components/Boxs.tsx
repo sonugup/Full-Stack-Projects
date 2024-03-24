@@ -1,8 +1,13 @@
 import React from 'react'
 
-const Boxs:React.FC = () => {
+
+interface TypeProps{
+  value?:string | null
+  onClick:() => void
+}
+const Boxs:React.FC <TypeProps> = (props) => {
   return (
-    <div className='boxs'>B</div>
+    <div className='boxs' onClick={props.onClick}> {props.value} </div>
   )
 }
 
