@@ -43,7 +43,7 @@ function App() {
   console.log(state)
   return (
     <div className="App">
-      <h1>Tic Tac Toa</h1>
+      <h1>Tic Tac Toa Game</h1>
       <div className='Tic'>
         <Boxs onClick={() => handleBoxs(0)} value={state[0]} />
         <Boxs onClick={() => handleBoxs(1)} value={state[1]}/>
