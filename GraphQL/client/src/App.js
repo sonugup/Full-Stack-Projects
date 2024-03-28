@@ -12,8 +12,6 @@ query GetTodosWithUser {
     user {
       id
       name
-      email
-      phone
     }
   }
   
@@ -26,16 +24,16 @@ console.log(data)
   if(loading) <h1>Loading...</h1>
   return (
     <div className="App">
-      {JSON.stringify(data)}
+      {/* {JSON.stringify(data)} */}
    <table>
     <tbody>
-      {/* {
+      {
         data.getTodos.map((todo )=>(<tr key={todo.id}>
           
           <td>{todo.title}</td>
           <td> {todo?.users?.name} </td>
         </tr>))
-      } */}
+      } 
     </tbody>
    </table>
     </div>

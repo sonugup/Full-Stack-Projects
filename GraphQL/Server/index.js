@@ -9,6 +9,7 @@ const {USERS} =require("./data/users")
 const {TODOS} =require("./data/todos")
 
 async function startServer() {
+
     const app = express();
     const server = new ApolloServer({
         typeDefs: `
@@ -34,15 +35,15 @@ async function startServer() {
         `,
         resolvers: {
             Todo :{
-                    user: async (todo) =>   USERS.find((e) => e.id === todo.id),
+                    user:  (todo) =>USERS.find((e) => e.id === todo.id),
                     // (await axios.get(`https://jsonplaceholder.typicode.com/users/${todo.id}`)).data
             },
             Query: {
-                getTodos:  async () =>  TODOS,
+                getTodos:   () =>TODOS,
                 // (
                     // await axios.get(`https://jsonplaceholder.typicode.com/todos`)
                 // ).data,
-                getAllUsers: async () =>  USERS,
+                getAllUsers: () =>USERS,
                 // (await axios.get(`https://jsonplaceholder.typicode.com/users`)).data,
                 getUser: async (parent, {id}) =>  USERS.find((e) => e.id === id),
                 // (
@@ -50,6 +51,29 @@ async function startServer() {
                 // )
             }
         }
+
+        // resolvers: {
+            // Todo :{
+                    // user: async (todo) =>
+                    
+                    // (await axios.get(`https://jsonplaceholder.typicode.com/users/${todo.id}`)).data
+            // },
+            // Query: {
+                // getTodos:  async () =>
+                
+                // (
+                    // await axios.get(`https://jsonplaceholder.typicode.com/todos`)
+                // ).data,
+                // getAllUsers: async () =>
+            
+                // (await axios.get(`https://jsonplaceholder.typicode.com/users`)).data,
+                // getUser: async (parent, {id}) => 
+                 
+                // (
+                    // (await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)).data
+                // )
+            // }
+        // }
     });
 
     app.use(bodyParser.json());
